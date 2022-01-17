@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Parisienne&display=swap");
+.christmasHeader {
+  position: relative;
+}
+.ChirstmasLight {
+  position: absolute;
+  top: -22px;
+  width: 500px;
+  z-index: 3;
+}
+.christmasHeader h1 {
+  position: relative;
+  text-align: center;
+  margin: auto;
+  z-index: 0;
+}
+.christmasHeader h2 {
+  margin: 5vh 0 0 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-family: "Merriweather";
+  z-index: 1;
+}
+.christmasBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 0 0 0;
+}
+.christmasCountdown {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  padding: 5px 0 0 0;
+  height: 100%;
+}
+.itsChristmas {
+  position: relative;
+  margin-top: 20px;
+  line-height: 50px;
+  font-size: 22px;
+  font-family: "Pacifico";
+}
+.itsChristmas #holy {
+  position: absolute;
+  top: -23px;
+  left: -40px;
+  width: 50px;
+  z-index: 3;
+}
+.itsChristmas #candycane {
+  position: absolute;
+  width: 28px;
+  bottom: -8px;
+  right: -22px;
+  transform: scaleX(-1) rotate(-45deg);
+}
+.christmasCountdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.christmasCountdown div {
+  display: flex;
+  gap: 12px;
+}
+.christmasCountdown article {
+  margin: 4px;
+}
+.christmasCountdown p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: #64b646;
+  border-radius: 5px;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 8px;
+  font-size: 22px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+.closeChristmas p {
+  background-color: rgb(202, 50, 50);
+}
+.christmasCountdown h3 {
+  font-size: 12px;
+  font-family: "Nunito";
+  text-transform: uppercase;
+}
+.christmasBody h2 {
+  display: block;
+  font-size: 22px;
+  text-transform: capitalize;
+  font-family: "Parisienne";
+  color: #ffe2af;
+}
+.christmasFooter {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  width: 100%;
+}
+.snowMan {
+  margin: auto 0 0 0px;
+  width: 9vh;
+  height: 9vh;
+}
+.christmasTree {
+  width: 12vh;
+  margin: auto;
+}
+.figures {
+  position: absolute;
+  bottom: -1vh;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+.santa {
+  width: 11vh;
+  height: fit-content;
+}
+.rudolph {
+  width: 11vh;
+  height: fit-content;
+}
+#merry {
+  font-size: 8vw;
+  font-family: "Merriweather";
+  font-style: oblique;
+  text-transform: uppercase;
+  z-index: 2;
+  color: #ebdf89;
+}
+#christ {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 14px;
+  font-family: "Parisienne";
+  font-size: 14vw;
+  font-weight: 200;
+  text-transform: capitalize;
+  color: #efe072;
+  z-index: 1;
+}
+@media screen and (min-width: 800px) {
+  .christmasHeader {
+    position: relative;
+  }
+  .ChirstmasLight {
+    width: 1248px;
+    height: 90px;
+    top: -60px;
+  }
+  .christmasHeader h2 {
+    margin: 6vh 0 0 0;
+    font-size: 20px;
+  }
+  .itsChristmas {
+    margin-top: 10px;
+    font-size: 32px;
+    padding: 4px;
+  }
+  .itsChristmas #holy {
+    top: -50px;
+    left: -68px;
+    width: 90px;
+    height: 90px;
+  }
+  .itsChristmas #candycane {
+    width: 35px;
+    bottom: -10px;
+    right: -28px;
+  }
+  .christmasCountdown article {
+    margin: 0 10px 0 10px;
+  }
+  .christmasCountdown p {
+    padding: 20px;
+    width: 7.8vh;
+    height: 7.8vh;
+    font-size: 1.8rem;
+  }
+  .christmasCountdown h3 {
+    font-size: 16px;
+  }
+  .christmasBody h2 {
+    font-size: 34px;
+  }
+  .snowMan {
+    margin: auto 80px 0 0;
+    width: 15vh;
+    height: 15vh;
+  }
+  .right {
+    margin: auto 0 0 80px;
+  }
+  .christmasTree {
+    width: 20vh;
+  }
+  .santa {
+    width: 18vh;
+    right: 270px;
+  }
+  .rudolph {
+    width: 17vh;
+    left: 270px;
+  }
+  #merry {
+    font-size: 7vh;
+  }
+  #christ {
+    font-size: 12vh;
+  }
+}

@@ -1,0 +1,207 @@
+.LunarModal {
+  height: 100%;
+}
+.LunarHeader {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  padding-top: 6vh;
+}
+.LunarHeader h1 {
+  font-size: 7vw;
+  font-family: "MerriWeather";
+  text-transform: uppercase;
+  text-align: center;
+  color: #ecd773;
+}
+#lantern-1,
+#lantern-2 {
+  width: 17vw;
+  position: absolute;
+  top: -3vh;
+  z-index: 2;
+}
+#lantern-1 {
+  left: 7vw;
+}
+#lantern-2 {
+  right: 7vw;
+  transform: scaleX(-1);
+}
+#KnotTass-1,
+#KnotTass-2,
+#KnotTass-3,
+#KnotTass-4 {
+  width: 12vw;
+  position: absolute;
+  z-index: 1;
+}
+#KnotTass-1,
+#KnotTass-2 {
+  top: -4vh;
+  width: 16vw;
+}
+#KnotTass-1 {
+  left: -5vw;
+}
+#KnotTass-2 {
+  right: -5vw;
+  transform: scaleX(-1);
+}
+#KnotTass-3,
+#KnotTass-4 {
+  top: 10vh;
+}
+#KnotTass-3 {
+  left: 4vw;
+}
+#KnotTass-4 {
+  right: 4vw;
+}
+.LunarBody {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+.LunarCountdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  z-index: 10;
+}
+.LunarCountdown p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: #c30d29;
+  border-radius: 5px;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 5px 8px 10px 8px;
+  font-size: 22px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+.LunarCountdown h3 {
+  text-transform: capitalize;
+  font-size: 14px;
+}
+.LunarFooter {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: auto;
+  padding: 5px;
+}
+.LunarFooter p {
+  width: 70%;
+  text-transform: capitalize;
+  margin-top: 0px;
+  font-size: 12px;
+}
+.Deco {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+}
+.Deco::before,
+.Deco::after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 3px solid #ffc560;
+  border-radius: 20px;
+  margin: auto;
+}
+.Deco div {
+  width: 30px;
+}
+.Deco div:nth-child(1) {
+  margin: 0px 0px 0px 10px;
+}
+.Deco div:nth-child(3) {
+  margin: 0px 10px 0px 0px;
+}
+.Deco div:nth-child(2) {
+  margin: 0px 10px 0px 10px;
+}
+@media screen and (min-width: 800px) {
+  .LunarHeader {
+    padding-top: 3vh;
+  }
+  .LunarHeader h1 {
+    font-size: 3.5vw;
+  }
+  #lantern-1,
+  #lantern-2 {
+    width: 11vw;
+    top: -4.5vh;
+  }
+  #lantern-1 {
+    left: 5.5vw;
+  }
+  #lantern-2 {
+    right: 5.5vw;
+  }
+  #KnotTass-1,
+  #KnotTass-2,
+  #KnotTass-3,
+  #KnotTass-4 {
+    width: 6vw;
+  }
+  #KnotTass-1,
+  #KnotTass-2 {
+    top: -22%;
+    width: 8.5vw;
+  }
+  #KnotTass-1 {
+    left: -2%;
+  }
+  #KnotTass-2 {
+    right: -2%;
+    transform: scaleX(-1);
+  }
+  #KnotTass-3,
+  #KnotTass-4 {
+    top: calc(100vw * 0.1);
+  }
+  #KnotTass-3 {
+    left: 7%;
+  }
+  #KnotTass-4 {
+    right: 7%;
+  }
+  .LunarBody {
+    padding: 6px 0 0 0;
+  }
+  .LunarCountdown {
+    height: 100%;
+    gap: 20px;
+  }
+  .LunarCountdown p {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+  }
+  .LunarCountdown h3 {
+    font-size: 20px;
+  }
+  .LunarFooter {
+    padding: 10px;
+  }
+  .LunarFooter p {
+    font-size: 1rem;
+  }
+  .Deco {
+    width: 60%;
+  }
+  .Deco div {
+    width: 2rem;
+  }
+}
