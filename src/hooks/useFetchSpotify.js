@@ -23,7 +23,7 @@ export default function useFetchSpotify(themes) {
           ) {
             setTracks({
               Name: response.data.Name,
-              Cover: themeList.find((theme) => theme.name === themes).spotify,
+              ...Tracks,
             });
           }
         } else {
@@ -32,6 +32,6 @@ export default function useFetchSpotify(themes) {
       } catch (error) {}
     }, 2222);
     return () => clearInterval(Getspotify);
-  }, [themes]);
+  }, [themes, Tracks]);
   return Tracks;
 }

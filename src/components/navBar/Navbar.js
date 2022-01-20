@@ -34,6 +34,7 @@ const NavBar = ({
   //Click Out End//
   return (
     <header
+      id="NavBar"
       style={{
         top: !scrollPass ? "-100%" : "0",
       }}
@@ -57,7 +58,12 @@ const NavBar = ({
               <div className={`${showMenu ? "change" : ""} bur2 `}></div>
               <div className={`${showMenu ? "change" : ""} bur3 `}></div>
             </button>
-            <div className={showMenu ? "side show" : "side"}>
+            <div
+              className="side"
+              style={{
+                transform: showMenu ? "translateX(0vw)" : "translateX(100vw)",
+              }}
+            >
               <div className="side-container">
                 <ul>
                   {navItem.map((item) => {

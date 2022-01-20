@@ -3,9 +3,8 @@ header {
   width: 100vw;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 10;
   top: 0;
-  transition: top 0.5s ease 0.2s;
 }
 
 nav {
@@ -61,19 +60,14 @@ button.burger {
   align-items: center;
   justify-content: center;
   top: 0;
-  right: -100%;
-  width: calc(100vw * 0.6);
+  right: 0;
+  width: 60vw;
   height: 100vh;
   text-align: center;
-  transition: right 0.6s ease 0s;
   background-color: rgb(var(--backgrColor));
   font-family: "Nunito";
   z-index: 1;
-}
-
-.side.show {
-  right: 0%;
-  transition: 0.5s ease 0.2s;
+  transition: all 0.2s ease;
 }
 
 .side-container {
@@ -85,15 +79,14 @@ button.burger {
 }
 .side li {
   display: block;
-  font-size: 1.56rem;
+  font-size: 1.6rem;
   padding: 2px 0 2px 0;
   text-align: left;
+  margin: 0 0 0.6rem 0;
 }
 
 .side li a {
   text-transform: capitalize;
-  padding: 0;
-  margin: 0 0.5em;
 }
 .side li a span {
   color: rgb(var(--colorSecondary));
@@ -102,8 +95,8 @@ button.burger {
 .spotify {
   position: relative;
   display: block;
-  width: calc(100vw * 0.48);
-  height: calc(100vw * 0.48);
+  width: 50vw;
+  height: 50vw;
   padding: 0;
   margin: 1.5rem 0 0 0;
   border: 3px solid rgb(var(--colorSecondary));
@@ -130,13 +123,13 @@ button.burger {
 }
 .title {
   display: flex;
-  padding: 5px;
   margin: auto;
 }
 .title h1 {
   margin: auto;
+  padding: 2px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.96em;
   color: rgba(var(--white), 0.8);
 }
 .metadata {
@@ -185,7 +178,7 @@ button.burger {
   }
 
   .side li {
-    margin: 0;
+    margin: 0 10px 0 10px;
     padding: 0;
   }
   .side li a {
@@ -221,7 +214,7 @@ button.burger {
   .player {
     position: relative;
     text-align: center;
-    width: 12em;
+    width: 11vw;
     border: 2px solid rgb(var(--colorSecondary));
     border-radius: 15px;
   }
@@ -237,7 +230,7 @@ button.burger {
 
   .spotify {
     width: 100%;
-    height: 12rem;
+    height: 10vw;
     position: absolute;
     border: 4px solid rgb(var(--colorSecondary));
     background-color: rgb(var(--backgrColor));
@@ -246,11 +239,11 @@ button.burger {
   }
 
   .title h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .metadata {
     position: relative;
-    font-size: 13.5px;
+    font-size: 0.8rem;
   }
   .metadata p {
     width: 92%;

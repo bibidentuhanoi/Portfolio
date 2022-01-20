@@ -9,8 +9,8 @@
 }
 
 .switcher button {
-  width: 30px;
-  height: 30px;
+  width: 3em;
+  height: 3em;
   margin: 0 2px;
   color: rgba(var(--white), 0.7);
   border: 2px solid;
@@ -24,7 +24,7 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 2em;
 }
 .active {
   color: rgba(var(--colorSecondary), 0.7);
@@ -41,6 +41,8 @@
   .switcher button {
     width: 30px;
     height: 30px;
+  }
+  .switcher button div {
     font-size: 20px;
   }
 }

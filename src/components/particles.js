@@ -18,7 +18,7 @@ let ParticlesBackGround = ({ width, blur, themes }) => {
   useEffect(() => {
     if (width <= 800)
       setPat({
-        Num: "17",
+        Num: "15",
         Area: "400",
       });
     else
@@ -28,79 +28,71 @@ let ParticlesBackGround = ({ width, blur, themes }) => {
       });
   }, [width, themes]);
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        position: "fixed",
-        top: 0,
-        bottom: 0,
-        zIndex: -1,
-        filter: blur ? "blur(0.2rem)" : "",
-      }}
-    >
-      <Particles
-        options={{
-          background: {
-            color: {
-              value: "",
-            },
-            fpsLimit: 50,
+    <Particles
+      options={{
+        background: {
+          color: {
+            value: "",
           },
-          interactivity: {
-            detect_on: "canvas",
-            events: {
-              onClick: {
-                enable: false,
-              },
-            },
-            onHover: {
+          fpsLimit: 60,
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onClick: {
               enable: false,
-              parallax: {
-                enable: false,
-                force: 2,
-                smooth: 10,
-              },
             },
           },
-          particles: {
-            number: {
-              value: ParticleOP.Num,
-              density: {
-                enable: false,
-                area: ParticleOP.Area,
-              },
+          onHover: {
+            enable: false,
+            parallax: {
+              enable: false,
+              force: 2,
+              smooth: 10,
             },
-            size: {
-              random: {
-                enable: themeList.find((item) => themes === item.name).bckgr
-                  .random,
-                minimumValue: 2,
-              },
-              value: themeList.find((item) => themes === item.name).bckgr.size,
+          },
+        },
+        particles: {
+          number: {
+            value: ParticleOP.Num,
+            density: {
+              enable: false,
+              area: ParticleOP.Area,
             },
-            destroy: {
-              split: {
-                count: 2,
-                factor: {
-                  random: {
-                    enable: true,
-                    minimumValue: 1,
-                  },
-                  value: 5,
+          },
+          size: {
+            random: {
+              enable: themeList.find((item) => themes === item.name).bckgr
+                .random,
+              minimumValue: 2,
+            },
+            value: themeList.find((item) => themes === item.name).bckgr.size,
+          },
+          destroy: {
+            split: {
+              count: 2,
+              factor: {
+                random: {
+                  enable: true,
+                  minimumValue: 1,
                 },
-                sizeOffset: true,
+                value: 5,
               },
-            },
-            link: {
-              distance: "120",
+              sizeOffset: true,
             },
           },
-          preset: themeList.find((item) => themes === item.name).bckgr.preset,
-        }}
-        init={particlesInit}
-      />
-    </div>
+          link: {
+            distance: "120",
+          },
+        },
+        fullScreen: {
+          enable: true,
+          zIndex: -1,
+        },
+        preset: themeList.find((item) => themes === item.name).bckgr.preset,
+      }}
+      init={particlesInit}
+    />
   );
 };
 export default ParticlesBackGround;

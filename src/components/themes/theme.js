@@ -50,7 +50,7 @@ export const themeList = [
     name: "lunar",
     icon: <GiAsianLantern />,
     emoj: "🧨",
-    bckgr: { size: 8, Patnum: "80", preset: "blossomFallV1", random: true },
+    bckgr: { size: 7, Patnum: "80", preset: "blossomFallV1", random: true },
     bckgrImg: lunarBck,
     spotify: SpotifyLunar,
     msg: "Happy Lunar New Year 🧨",

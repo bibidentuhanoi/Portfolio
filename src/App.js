@@ -72,6 +72,17 @@ function App() {
   });
   // Handle Scroll End//
 
+  useEffect(() => {
+    if (!load) {
+      if (blur) {
+        document.querySelector("canvas").style.filter = "blur(5px)";
+        document.querySelector("#content").style.opacity = 0.2;
+      } else {
+        document.querySelector("canvas").style.filter = "blur(0px)";
+        document.querySelector("#content").style.opacity = 1;
+      }
+    }
+  }, [load, blur]);
   return load ? (
     <Loader />
   ) : (
@@ -99,15 +110,14 @@ function App() {
             ) : null}
           </>
         ) : null}
-
-        <div style={{ filter: blur ? "blur(0.2em)" : null }}>
+        <section id="content">
           <Intro Bounce={Bounce} themes={themes.name} />
           <About themes={themes.name} width={width} />
           <Skills width={width} />
           <Projects themes={themes.name} />
           <SideBars showSide={showSide} width={width} />
           <Footer themes={themes.name} />
-        </div>
+        </section>
       </main>
     </>
   );
