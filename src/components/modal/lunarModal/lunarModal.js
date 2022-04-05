@@ -3,6 +3,7 @@ import KnotTassel from "./ knotTassel";
 import Dragon from "./dragon";
 import Coin from "./coin";
 import "./lunarModal.css";
+import Tiger from "./tiger";
 export default function LunarModal({ time }) {
   return (
     <div className="LunarModal">
@@ -31,24 +32,47 @@ export default function LunarModal({ time }) {
         </h1>
       </div>
       <div className="LunarBody">
-        <div className="LunarCountdown">
-          <article>
-            <p>{time.days}</p>
-            <h3>{time.days <= 1 ? "Day" : "Days"}</h3>
-          </article>{" "}
-          <article>
-            <p>{time.hours}</p>
-            <h3>hours</h3>
-          </article>{" "}
-          <article>
-            <p>{time.minutes}</p>
-            <h3>minutes</h3>
-          </article>{" "}
-          <article>
-            <p>{time.seconds}</p>
-            <h3>seconds</h3>
-          </article>
-        </div>
+        {time.event ? (
+          <>
+            <div className="LunarToday">
+              <div id="tiger1">
+                {" "}
+                <Tiger />
+              </div>
+              <h1>
+                Day <br />
+                <span>{time.date}</span>
+              </h1>
+              <div id="tiger2">
+                {" "}
+                <Tiger />
+              </div>
+              <h2>Of Lunar New Year</h2>
+            </div>
+          </>
+        ) : (
+          <div>
+            <div className="LunarCountdown">
+              <article>
+                <p>{time.days}</p>
+                <h3>{time.days <= 1 ? "Day" : "Days"}</h3>
+              </article>{" "}
+              <article>
+                <p>{time.hours}</p>
+                <h3>hours</h3>
+              </article>{" "}
+              <article>
+                <p>{time.minutes}</p>
+                <h3>minutes</h3>
+              </article>{" "}
+              <article>
+                <p>{time.seconds}</p>
+                <h3>seconds</h3>
+              </article>
+            </div>
+            <h2>Until Lunar New Year</h2>
+          </div>
+        )}
       </div>
       <div className="LunarFooter">
         <p>

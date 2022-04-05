@@ -9,7 +9,6 @@ import useFetchSpotify from "../../hooks/useFetchSpotify";
 import useDetectClickOut from "../../hooks/useDetectClickOut";
 import useHover from "../../hooks/useHover";
 const NavBar = ({
-  width,
   setBlur,
   blur,
   showMenu,
@@ -44,161 +43,81 @@ const NavBar = ({
           {" "}
           <Logo logoWidth={"4em"} />
         </div>
-        {width <= 800 ? (
-          <div className="sidebar" ref={Menuref}>
-            <button
-              className="burger"
-              onClick={() => {
-                setShow(!showMenu);
-                setBlur(!blur);
-              }}
-            >
-              {" "}
-              <div className={`${showMenu ? "change" : ""} bur1 `}></div>
-              <div className={`${showMenu ? "change" : ""} bur2 `}></div>
-              <div className={`${showMenu ? "change" : ""} bur3 `}></div>
-            </button>
-            <div
-              className="side"
-              style={{
-                transform: showMenu ? "translateX(0vw)" : "translateX(100vw)",
-              }}
-            >
-              <div className="side-container">
-                <ul>
-                  {navItem.map((item) => {
-                    const { id, url, text } = item;
-                    return (
-                      <li key={id}>
-                        <Link smooth to={`#${url}`} key={id}>
-                          <span>{id}.</span>&nbsp;
-                          {text}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-                <Switcher
-                  setTheme={setTheme}
-                  themes={themes}
-                  setLoad={setLoad}
-                />
-
-                <div className="spotify">
-                  <div
-                    className="cover"
-                    style={{
-                      backgroundImage: `url(${Tracks.Cover})`,
-                      backgroundPosition: "center",
-                      backgroundSize: "cover",
-                      backgroundRepeat: "no-repeat",
-                    }}
-                  >
-                    {/* <img src={Tracks.Cover} alt="cover" /> */}
-                  </div>
-                  <a href={Tracks.trackUrl}>
-                    <div className="trackInfo">
-                      <div className="title">
-                        <h1>{Tracks.Name}</h1>
-                      </div>
-                      <div className="metadata">
-                        <p id="album">
-                          <FaRecordVinyl className="icon" />
-                          <span>{Tracks.Album}</span>
-                        </p>
-                        <p id="artis">
-                          <FaUserAlt className="icon" />
-                          <span id="scorll">{Tracks.Artist}</span>
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
+        <button
+          className="burger"
+          onClick={() => {
+            setShow(!showMenu);
+            setBlur(!blur);
+          }}
+        >
+          {" "}
+          <div className={`${showMenu ? "change" : ""} bur1 `}></div>
+          <div className={`${showMenu ? "change" : ""} bur2 `}></div>
+          <div className={`${showMenu ? "change" : ""} bur3 `}></div>
+        </button>
+        <div className="navItem" id={showMenu ? "" : "HideMenu"}>
+          <ul>
+            {navItem.map((item) => {
+              const { id, url, text } = item;
+              return (
+                <li key={id}>
+                  <Link smooth to={`#${url}`}>
+                    <span>{id}.</span> {text}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="themesSwitcher" ref={ThemeRef}>
+            <span id="navItemHeader">
+              Themes&nbsp;
+              <FaCaretDown />{" "}
+            </span>
+            <div className="switch" id={IsShowTheme ? "" : "HideNavItem"}>
+              <Switcher setTheme={setTheme} themes={themes} setLoad={setLoad} />
             </div>
           </div>
-        ) : (
-          <div className="side">
-            <ul>
-              {navItem.map((item) => {
-                const { id, url, text } = item;
-                return (
-                  <li key={id}>
-                    <Link smooth to={`#${url}`}>
-                      {text}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-            <div className="themesSwitcher" ref={ThemeRef}>
-              <span>
-                Themes&nbsp;
-                <FaCaretDown />{" "}
-              </span>
+          <div className="player" ref={SpotRef}>
+            <a
+              id="navItemHeader"
+              href={Tracks.trackUrl}
+              target="_blank"
+              without
+              rel="noreferrer"
+            >
+              Now Playing&nbsp;
+              <FaCaretDown />{" "}
+            </a>
+            <div className="spotify" id={IsShowSpot ? "" : "HideNavItem"}>
               <div
-                className="switch"
+                className="cover"
                 style={{
-                  visibility: IsShowTheme ? "visible" : "hidden",
-                  opacity: IsShowTheme ? "1" : "0",
+                  backgroundImage: `url(${Tracks.Cover})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
                 }}
-              >
-                <Switcher
-                  setTheme={setTheme}
-                  themes={themes}
-                  setLoad={setLoad}
-                />
-              </div>
-            </div>
-            <div className="player" ref={SpotRef}>
-              <a
-                href={Tracks.trackUrl}
-                target="_blank"
-                without
-                rel="noreferrer"
-              >
-                Now Playing&nbsp;
-                <FaCaretDown />{" "}
+              ></div>
+              <a href={Tracks.trackUrl}>
+                <div className="trackInfo">
+                  <div className="title">
+                    <h1>{Tracks.Name}</h1>
+                  </div>
+                  <div className="metadata">
+                    <p id="album">
+                      <FaRecordVinyl className="icon" />
+                      <span>{Tracks.Album}</span>
+                    </p>
+                    <p id="artis">
+                      <FaUserAlt className="icon" />
+                      <span id="scorll">{Tracks.Artist}</span>
+                    </p>
+                  </div>
+                </div>
               </a>
-              <div
-                className="spotify"
-                style={{
-                  visibility: IsShowSpot ? "visible" : "hidden",
-                  opacity: IsShowSpot ? "1" : "0",
-                }}
-              >
-                <div
-                  className="cover"
-                  style={{
-                    backgroundImage: `url(${Tracks.Cover})`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                >
-                  {/* <img src={Tracks.Cover} alt="cover" /> */}
-                </div>
-                <a href={Tracks.trackUrl}>
-                  <div className="trackInfo">
-                    <div className="title">
-                      <h1>{Tracks.Name}</h1>
-                    </div>
-                    <div className="metadata">
-                      <p id="album">
-                        <FaRecordVinyl className="icon" />
-                        <span>{Tracks.Album}</span>
-                      </p>
-                      <p id="artis">
-                        <FaUserAlt className="icon" />
-                        <span id="scorll">{Tracks.Artist}</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );

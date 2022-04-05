@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
 .LunarModal {
   height: 100%;
 }
@@ -5,7 +6,7 @@
   width: 100%;
   position: absolute;
   top: 0;
-  padding-top: 6vh;
+  padding-top: 5vh;
 }
 .LunarHeader h1 {
   font-size: 7vw;
@@ -61,8 +62,50 @@
 .LunarBody {
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
   height: 100%;
+}
+.LunarBody h2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 15px 0 0 0;
+  font-size: 1.2em;
+  font-family: "MerriWeather";
+  color: #f1c75c;
+}
+.LunarToday {
+  position: relative;
+  width: 100%;
+}
+.LunarToday span {
+  color: rgb(252, 61, 61);
+  text-shadow: 2px 2px 2px #ce0000;
+}
+#tiger1,
+#tiger2 {
+  position: absolute;
+  width: 5rem;
+  top: 0;
+  transform: rotateZ(30deg);
+}
+#tiger1 {
+  transform: scaleX(-1) rotateZ(30deg);
+  left: 14%;
+}
+#tiger2 {
+  right: 14%;
+}
+
+.LunarToday h1 {
+  color: #f3d89b;
+  font-size: 2.5em;
+  font-family: "Noto Serif", serif;
+  line-height: 45px;
+}
+.LunarToday h2 {
+  color: #f3d89b;
 }
 .LunarCountdown {
   display: flex;
@@ -179,6 +222,26 @@
   }
   .LunarBody {
     padding: 6px 0 0 0;
+  }
+  .LunarBody h2 {
+    font-size: 2em;
+  }
+  .LunarToday h1 {
+    font-size: 3.5em;
+    line-height: normal;
+  }
+  .LunarToday h2 {
+    font-size: 1.6em;
+  }
+  #tiger1,
+  #tiger2 {
+    width: 10vw;
+  }
+  #tiger1 {
+    left: 25%;
+  }
+  #tiger2 {
+    right: 25%;
   }
   .LunarCountdown {
     height: 100%;

@@ -1,4 +1,5 @@
 import { CalendarVietnamese } from "date-chinese";
+import { julian } from "astronomia";
 import { FaGifts, FaHome } from "react-icons/fa";
 import { GiAsianLantern } from "react-icons/gi";
 import SpotifyDefault from "../photo/theme/spotify/default.png";
@@ -8,8 +9,10 @@ import SpotifyChristmas from "../photo/theme/spotify/christmas.png";
 import SpotifyLunar from "../photo/theme/spotify/lunar.png";
 
 let cal = new CalendarVietnamese();
-let newYear = cal.newYear(new Date().getUTCFullYear());
-cal.fromJDE(newYear);
+let GetnewYear = cal.newYear(new Date().getUTCFullYear());
+let LunarNewyear = new Date(
+  new julian.CalendarGregorian().fromJDE(GetnewYear).toDate()
+).getTime();
 export const themeList = [
   {
     id: 1,
@@ -31,9 +34,11 @@ export const themeList = [
     end: new Date(
       `December 26, ${new Date().getUTCFullYear()} 00:00:00`
     ).getTime(),
-    event: new Date(
-      `December 25, ${new Date().getUTCFullYear()} 00:00:00`
-    ).getTime(),
+    event: [
+      new Date(
+        `December 25, ${new Date().getUTCFullYear()} 00:00:00`
+      ).getTime(),
+    ],
     name: "christmas",
     icon: <FaGifts />,
     emoj: "🎄",
@@ -44,13 +49,20 @@ export const themeList = [
   },
   {
     id: 3,
-    start: new Date(cal.toDate().toISOString()).getTime() - 1036800000,
-    end: new Date(cal.toDate().toISOString()).getTime() + 432000000,
-    event: new Date(cal.toDate().toISOString()).getTime(),
+    start: LunarNewyear - 1036800000,
+    end: LunarNewyear + 518400000,
+    event: [
+      LunarNewyear,
+      LunarNewyear + 86400000,
+      LunarNewyear + 172800000,
+      LunarNewyear + 259200000,
+      LunarNewyear + 345600000,
+      LunarNewyear + 432000000,
+    ],
     name: "lunar",
     icon: <GiAsianLantern />,
     emoj: "🧨",
-    bckgr: { size: 7, Patnum: "80", preset: "blossomFallV1", random: true },
+    bckgr: { size: 7, Patnum: "60", preset: "blossomFallV1", random: true },
     bckgrImg: lunarBck,
     spotify: SpotifyLunar,
     msg: "Happy Lunar New Year 🧨",

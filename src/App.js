@@ -21,7 +21,7 @@ function App() {
   const [blur, setBlur] = useState(false);
   const [showSide, setSide] = useState(false);
   const [Bounce, setBounce] = useState(true);
-  const [showMenu, setShow] = useState(false);
+  const [showMenu, setShow] = useState(true);
   const [showModal, setModal] = useState(true);
   const [scrollPass, setScroll] = useState(true);
   const [themes, setTheme] = useState({ prevTheme: "", name: "default" });
