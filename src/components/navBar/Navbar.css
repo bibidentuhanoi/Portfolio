@@ -176,11 +176,11 @@ button.burger {
     justify-content: center;
   }
   .navItem {
-    all: unset;
+    flex-direction: row;
+    position: relative;
     width: fit-content;
     height: fit-content;
     font-family: "Nunito";
-    display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
@@ -220,13 +220,13 @@ button.burger {
     border: 2px solid rgb(var(--colorSecondary));
     border-radius: 15px;
     cursor: pointer;
+    transition: all 0.6s ease;
   }
 
   .switch {
     position: absolute;
     width: 100%;
     margin-top: 6px;
-    transition: all 0.6s ease;
   }
   .player {
     position: relative;
