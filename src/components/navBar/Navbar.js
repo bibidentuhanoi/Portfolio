@@ -28,7 +28,7 @@ const NavBar = ({
   const Menuref = useRef(null);
   useDetectClickOut(Menuref, () => {
     setShow(false);
-    setBlur(false);
+    setBlur(0);
   });
   //Click Out End//
   return (
@@ -88,33 +88,38 @@ const NavBar = ({
               Now Playing&nbsp;
               <FaCaretDown />{" "}
             </a>
-            <div className="spotify" id={IsShowSpot ? "" : "HideNavItem"}>
-              <div
-                className="cover"
-                style={{
-                  backgroundImage: `url(${Tracks.Cover})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-              <a href={Tracks.trackUrl}>
-                <div className="trackInfo">
-                  <div className="title">
-                    <h1>{Tracks.Name}</h1>
+            <div
+              className="spotifyContainer"
+              id={IsShowSpot ? "" : "HideNavItem"}
+            >
+              <div className="spotify">
+                <div
+                  className="cover"
+                  style={{
+                    backgroundImage: `url(${Tracks.Cover})`,
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                ></div>
+                <a href={Tracks.trackUrl}>
+                  <div className="trackInfo">
+                    <div className="title">
+                      <h1>{Tracks.Name}</h1>
+                    </div>
+                    <div className="metadata">
+                      <p id="album">
+                        <FaRecordVinyl className="icon" />
+                        <span>{Tracks.Album}</span>
+                      </p>
+                      <p id="artis">
+                        <FaUserAlt className="icon" />
+                        <span id="scorll">{Tracks.Artist}</span>
+                      </p>
+                    </div>
                   </div>
-                  <div className="metadata">
-                    <p id="album">
-                      <FaRecordVinyl className="icon" />
-                      <span>{Tracks.Album}</span>
-                    </p>
-                    <p id="artis">
-                      <FaUserAlt className="icon" />
-                      <span id="scorll">{Tracks.Artist}</span>
-                    </p>
-                  </div>
-                </div>
-              </a>
+                </a>
+              </div>
             </div>
           </div>
         </div>

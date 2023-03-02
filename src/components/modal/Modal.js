@@ -16,7 +16,8 @@ export default function Modal({ setModal, themes }) {
   let endDate = Event[0];
   if (
     new Date(endDate).getDate() < new Date().getDate() &&
-    new Date(endDate).getMonth() < new Date().getMonth()
+    new Date(endDate).getMonth() < new Date().getMonth() &&
+    new Date(endDate).getUTCFullYear() < new Date().getUTCFullYear()
   ) {
     endDate = endDate + 31556952000;
   }
@@ -30,6 +31,7 @@ export default function Modal({ setModal, themes }) {
       const days = hours * 24;
       const IsToday = Event.findIndex(
         (E) =>
+          new Date(E).getUTCFullYear() === new Date().getUTCFullYear() &&
           new Date(E).getMonth() === new Date().getMonth() &&
           new Date(E).getDate() === new Date().getDate() &&
           new Date(E).getHours() <= new Date().getHours() &&

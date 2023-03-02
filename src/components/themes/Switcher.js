@@ -3,7 +3,7 @@ import "./themes.css";
 import "./themesSwitcher.css";
 let Switcher = ({ setTheme, themes, setLoad }) => {
   return (
-    <div className="container">
+    <div>
       <div className="switcher-container">
         <div className="switcher">
           {themeList.map((theme) => {

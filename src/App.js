@@ -18,7 +18,7 @@ import useScheduleTheme from "./hooks/useScheduleTheme";
 function App() {
   // Startup Start //
   const [load, setLoad] = useState(true);
-  const [blur, setBlur] = useState(false);
+  const [blur, setBlur] = useState(0);
   const [showSide, setSide] = useState(false);
   const [Bounce, setBounce] = useState(true);
   const [showMenu, setShow] = useState(true);
@@ -27,7 +27,7 @@ function App() {
   const [themes, setTheme] = useState({ prevTheme: "", name: "default" });
   const width = useDeviceWidth();
   const loader = useCallback(async () => {
-    await wait(3500);
+    await wait(3000);
     document.querySelector(".loader-container").style.opacity = "0";
     await wait(1000);
     setLoad(false);
@@ -40,7 +40,7 @@ function App() {
     if (load) {
       loader();
       setShow(false);
-      setBlur(false);
+      setBlur(0);
       if (themes.name !== "default") setModal(true);
     }
     return () => {
@@ -64,7 +64,7 @@ function App() {
       setScroll(true);
     } else {
       setShow(false);
-      setBlur(false);
+      setBlur(0);
       setSide(true);
       setBounce(false);
       setScroll(false);
