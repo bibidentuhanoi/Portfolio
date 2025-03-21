@@ -51,9 +51,11 @@ button.burger {
   -webkit-transform: rotate(45deg) translate(-7px, -7px);
   transform: rotate(45deg) translate(-7px, -7px);
 }
+
 #navItemHeader {
   display: none;
 }
+
 /* #HideNavItem {
   display: block;
 } */
@@ -73,13 +75,16 @@ button.burger {
   transition: all 0.2s ease;
   z-index: 1;
 }
+
 #HideMenu {
   transform: translateX(100vw);
 }
+
 .navItem ul {
   margin: 0 0 1.5rem 0;
   width: 80%;
 }
+
 .navItem li {
   display: block;
   font-size: 1.8rem;
@@ -91,13 +96,16 @@ button.burger {
 .navItem li a {
   text-transform: capitalize;
 }
+
 .navItem li a span {
   color: rgb(var(--colorSecondary));
   font-family: monospace;
 }
+
 .player {
   width: 80%;
 }
+
 .spotify {
   position: relative;
   display: block;
@@ -113,10 +121,12 @@ button.burger {
   width: 100%;
   height: 100%;
 }
+
 .cover img {
   display: block;
   max-width: 100%;
 }
+
 .trackInfo {
   position: absolute;
   display: flex;
@@ -127,10 +137,12 @@ button.burger {
   background-color: rgba(var(--backgrColorLight), 0.55);
   border-radius: 4.5px;
 }
+
 .title {
   display: flex;
   margin: auto;
 }
+
 .title h1 {
   margin: auto;
   padding: 2px;
@@ -138,6 +150,7 @@ button.burger {
   font-size: 0.96em;
   color: rgba(var(--white), 0.8);
 }
+
 .metadata {
   margin-top: auto;
   position: relative;
@@ -146,6 +159,7 @@ button.burger {
   text-align: left;
   color: rgba(var(--white), 0.8);
 }
+
 .metadata p {
   display: block;
   position: relative;
@@ -159,14 +173,17 @@ button.burger {
     transition: top 0.4s ease 0.2s;
     height: 70px;
   }
+
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   button.burger {
     display: none;
   }
+
   #navItemHeader {
     color: rgb(var(--colorSecondary));
     display: flex;
@@ -174,6 +191,7 @@ button.burger {
     align-items: center;
     justify-content: center;
   }
+
   .navItem {
     flex-direction: row;
     position: relative;
@@ -185,12 +203,15 @@ button.burger {
     gap: 12px;
     padding: 0 14px 0 0;
   }
+
   #HideMenu {
     transform: translateX(0);
   }
+
   #HideNavItem {
     display: none;
   }
+
   .navItem ul {
     margin: 0;
     padding: 0;
@@ -207,6 +228,7 @@ button.burger {
     transition: 0.5s ease;
     font-size: 30px;
   }
+
   .navItem li a:hover {
     color: rgb(var(--colorSecondary));
   }
@@ -227,17 +249,20 @@ button.burger {
     width: 100%;
     padding-top: 0.4rem;
   }
+
   .player {
     position: relative;
     width: 11vw;
     border: 2px solid rgb(var(--colorSecondary));
     border-radius: 15px;
   }
+
   .spotifyContainer {
     position: absolute;
     padding-top: 0.4rem;
     width: 100%;
   }
+
   .spotify {
     width: 100%;
     height: 10vw;
@@ -248,10 +273,12 @@ button.burger {
   .title h1 {
     font-size: 1.2rem;
   }
+
   .metadata {
     position: relative;
     font-size: 0.8rem;
   }
+
   .metadata p {
     width: 92%;
   }

@@ -13,6 +13,7 @@ export default function useFetchProjects() {
       if (response) {
         if (response.status === 200) {
           setProjects(response.data);
+          console.log(response);
         }
       }
       await setLoad(false);

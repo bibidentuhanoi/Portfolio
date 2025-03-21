@@ -1,15 +1,25 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { BsCaretRight } from "react-icons/bs";
-
 import "./Projects.css";
 import Logo from "../logo/logo";
 import { themeList } from "../themes/theme";
 import useVisible from "../../hooks/useVisible";
 import useFetchProjects from "../../hooks/useFetchProjects";
+
 const Projects = ({ themes }) => {
   const ref = useRef();
   const onVisible = useVisible(ref);
   const [loading, Projects] = useFetchProjects();
+  const [expandedId, setExpandedId] = useState(null);
+
+  const toggleExpand = (id) => {
+    if (expandedId === id) {
+      setExpandedId(null);
+    } else {
+      setExpandedId(id);
+    }
+  };
+
   return (
     <div className="container" id="projects">
       <div
@@ -33,55 +43,56 @@ const Projects = ({ themes }) => {
                   <h2>{themeList.find((item) => item.name === themes).msg}</h2>
                 </div>
               ) : (
-                <section>
-                  <div className="ProjectsTitle">
-                    <div className="line"></div>
-                    <h2>Project HighLights</h2>
-                    <div className="line"></div>
-                  </div>
+                <div className="projectsHighlight">
+                  {Projects.map((item, index) => {
+                    const { id = index, name, description, image, url, tag = "" } = item;
+                    const isExpanded = expandedId === id;
 
-                  <section>
-                    <div className="projectsHighlight">
-                      {Projects.map((item, index) => {
-                        const { name, tag, des, image } = item;
-                        return (
-                          <div className="projectHL" key={index}>
+                    return (
+                      <div
+                        className={`projectHL ${isExpanded ? 'expanded' : ''}`}
+                        key={id}
+                      >
+                        <div
+                          className="projectHLBg"
+                          style={{
+                            background: `url(${image})`,
+                            backgroundPosition: "center",
+                            backgroundSize: "cover",
+                            backgroundRepeat: "no-repeat",
+                          }}
+                        ></div>
+                        <div className="projectHLDetail">
+                          <div className="projectBrand">
+                            <Logo logoWidth={"25px"} />
+                          </div>
+                          <h3 className="project-name" onClick={() => window.open(url, '_blank')}>
+                            {name}
+                          </h3>
+                          <div className="projectHLDes-container">
+                            <div className="projectHLDes">
+                              <p>{description || "No description available."}</p>
+                            </div>
                             <div
-                              className="projectHLBg"
-                              style={{
-                                background: `linear-gradient(rgba(var(--backgrColorLight), 1),rgba(var(--backgrColorLight), 0.8),rgba(var(--backgrColorLight), 0.6)),
-                          url(${image})`,
-                                backgroundPosition: "center",
-                                backgroundSize: "cover",
-                                backgroundRepeat: "no-repeat",
-                              }}
-                            ></div>
-                            <div className="projectHLDetail">
-                              <div className="projectBrand">
-                                {/* <img src={logo} alt="Logo" /> */}
-                                <Logo logoWidth={"16%"} />
-                              </div>
-                              <h3>{name}</h3>
-                              <div className="projectHLDes">
-                                <p>{des}</p>
-                              </div>
-                              <ul className="projectHLTag">
-                                {tag.split(",").map((item) => {
-                                  return (
-                                    <li>
-                                      <BsCaretRight className="icon projectHLTagIcon" />
-                                      {item.trim()}
-                                    </li>
-                                  );
-                                })}
-                              </ul>
+                              className="read-more-button"
+                              onClick={() => toggleExpand(id)}
+                            >
+                              {isExpanded ? "Read less" : "Read more"}
                             </div>
                           </div>
-                        );
-                      })}
-                    </div>
-                  </section>
-                </section>
+                          <ul className="projectHLTag">
+                            {(tag || "").split(",").map((item, tagIndex) => (
+                              <li key={tagIndex}>
+                                <BsCaretRight className="icon projectHLTagIcon" />
+                                {item.trim()}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               )}
             </div>
           )}
@@ -90,4 +101,5 @@ const Projects = ({ themes }) => {
     </div>
   );
 };
+
 export default Projects;
